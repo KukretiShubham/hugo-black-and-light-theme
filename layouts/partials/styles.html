@@ -1,4 +1,6 @@
 <style>
+  /* Typewriter aesthetic - raw, minimal, intellectual */
+  
   * {
     border: 0;
     font: inherit;
@@ -6,17 +8,19 @@
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    text-decoration-skip-ink: auto;
   }
 
   body {
-    font-family: 'Charter', 'Bitstream Charter', 'Sitka Text', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.75;
-    color: #1a1a1a;
-    max-width: 640px;
+    font-family: 'iA Writer Mono', 'IBM Plex Mono', 'JetBrains Mono', 
+                 'Fira Code', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    color: #222;
+    background: #faf9f7;
+    max-width: 680px;
     margin: auto;
-    letter-spacing: -0.01em;
+    padding: 0 1.5em;
   }
 
   p {
@@ -24,36 +28,33 @@
   }
 
   a {
-    color: #333;
-    text-decoration: none;
-    border-bottom: 1px solid #ccc;
-    transition: color 0.15s, border-color 0.15s;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 
   a:hover {
-    color: #000;
-    border-bottom-color: #000;
-  }
-
-  a img {
-    border: none;
+    background: #222;
+    color: #faf9f7;
+    text-decoration: none;
   }
 
   img {
-    margin: 1.5em auto;
+    margin: 2em auto;
     max-width: 100%;
     display: block;
   }
 
   pre, code {
-    font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
-    font-size: 0.9em;
-    background-color: #f6f6f6;
-    border-radius: 3px;
+    font-family: inherit;
+    font-size: 0.95em;
+    background: #f0eeeb;
+    border-radius: 2px;
   }
 
   code {
-    padding: 0.2em 0.4em;
+    padding: 0.15em 0.4em;
   }
 
   pre {
@@ -66,7 +67,6 @@
   pre > code {
     padding: 0;
     background: transparent;
-    border-radius: 0;
   }
 
   em, q, dfn {
@@ -74,36 +74,42 @@
   }
 
   strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   h1, h2, h3 {
-    font-family: inherit;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 700;
     line-height: 1.3;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   h1 {
-    font-size: 1.75em;
-  }
-
-  h2 {
     font-size: 1.4em;
   }
 
-  h3 {
+  h2 {
     font-size: 1.15em;
   }
 
+  h3 {
+    font-size: 1em;
+  }
+
   h1 a, h2 a, h3 a {
-    border-bottom: none;
+    text-decoration: none;
+  }
+
+  h1 a:hover, h2 a:hover, h3 a:hover {
+    text-decoration: underline;
+    background: transparent;
+    color: inherit;
   }
 
   blockquote {
-    border-left: 3px solid #ddd;
+    border-left: 2px solid #888;
     padding-left: 1.25em;
     margin: 1.5em 0;
     font-style: italic;
@@ -115,40 +121,42 @@
   }
 
   hr {
-    width: 30%;
-    height: 1px;
-    background: #ddd;
-    margin: 2.5em auto;
+    width: 100%;
+    height: 0;
     border: none;
+    border-top: 1px dashed #aaa;
+    margin: 2.5em 0;
   }
 
   #sub-header, .date {
     color: #666;
-    font-size: 0.85em;
-    letter-spacing: 0;
+    font-size: 0.9em;
   }
 
   li {
-    margin-left: 1.25em;
     margin-bottom: 0.5em;
   }
 
   ul li {
-    list-style-type: disc;
-    margin-left: 1.5em;
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5em;
   }
 
   ul li::before {
-    content: none;
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: #888;
   }
 
   ol li {
     list-style-type: decimal;
+    margin-left: 1.5em;
   }
 
   #nav ul li, .posts_listing li {
-    list-style-type: none;
-    margin-left: 0;
+    padding-left: 0;
   }
 
   #nav ul li::before, .posts_listing li::before {
@@ -156,26 +164,29 @@
   }
 
   .posts_listing a, #nav a {
-    border-bottom: none;
+    text-decoration: none;
   }
 
   .posts_listing a:hover, #nav a:hover {
-    border-bottom: 1px solid currentColor;
+    text-decoration: underline;
+    background: transparent;
+    color: inherit;
   }
 
   #content {
     text-align: left;
     width: 100%;
-    padding: 3em 0 4em;
+    padding: 2em 0 4em;
   }
 
   #content h1 {
-    font-size: 1.6em;
+    font-size: 1.3em;
     margin-top: 0;
+    margin-bottom: 0.25em;
   }
 
   #content h2 {
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 
   #content .entry-content {
@@ -183,45 +194,66 @@
   }
 
   .posts_listing {
-    margin: 0 0 3em;
+    margin: 0 0 2em;
   }
 
   .posts_listing li {
-    margin: 0 0 1.5em;
+    margin: 0 0 1.25em;
   }
 
   .posts_listing h3 {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .posts_listing h3 a {
+    text-decoration: none;
+  }
+
+  .posts_listing h3 a:hover {
+    text-decoration: underline;
   }
 
   #nav {
     text-align: center;
     position: static;
     margin-top: 3em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #nav h1 {
+    margin: 0 0 0.5em;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   #nav h1 a {
-    font-size: 1.5em;
-    color: #1a1a1a;
-    line-height: 1.2;
-    border-bottom: none;
-    font-weight: 600;
+    font-size: 1.3em;
+    color: #222;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  #nav h1 a:hover {
+    background: #222;
+    color: #faf9f7;
   }
 
   #nav ul {
     display: flex;
     justify-content: center;
     gap: 2em;
-    margin: 0.75em auto 0;
+    margin: 0;
     padding: 0;
   }
 
   #nav li {
     list-style-type: none;
-    font-size: 0.95em;
-    padding: 0;
+    font-size: 0.9em;
   }
 
   #links {
@@ -229,6 +261,8 @@
     justify-content: space-between;
     margin: 3em 0 0;
     font-size: 0.9em;
+    border-top: 1px dashed #aaa;
+    padding-top: 1.5em;
   }
 
   #not-found {
@@ -236,91 +270,81 @@
   }
 
   #not-found a {
-    font-size: 8em;
-    font-weight: 600;
-    border-bottom: none;
+    font-size: 5em;
+    font-weight: 700;
+    text-decoration: none;
     display: inline-block;
     padding-top: 2em;
   }
 
   /* Responsive */
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     body {
-      padding: 0 1.25em;
-      font-size: 17px;
+      font-size: 14px;
+      padding: 0 1em;
     }
 
     #nav h1 a {
-      font-size: 1.3em;
+      font-size: 1.2em;
     }
 
     #nav ul {
       gap: 1.5em;
     }
 
-    #nav li {
-      font-size: 0.9em;
-    }
-
-    #content {
-      padding-top: 2em;
-    }
-
     h1 {
-      font-size: 1.5em;
+      font-size: 1.25em;
     }
 
     h2 {
-      font-size: 1.25em;
+      font-size: 1.1em;
     }
   }
 
-  @media (max-width: 450px) {
-    body {
-      font-size: 16px;
-    }
-
-    #nav ul {
-      gap: 1em;
-    }
-  }
-
-  /* Dark mode */
+  /* Dark mode - classic terminal feel */
   @media (prefers-color-scheme: dark) {
     body {
-      background: #0d1117;
-      color: #e6edf3;
-    }
-
-    a {
-      color: #adbac7;
-      border-bottom-color: #444c56;
+      background: #1a1a1a;
+      color: #d4d4d4;
     }
 
     a:hover {
-      color: #e6edf3;
-      border-bottom-color: #e6edf3;
+      background: #d4d4d4;
+      color: #1a1a1a;
     }
 
     #nav h1 a {
-      color: #e6edf3;
+      color: #d4d4d4;
+    }
+
+    #nav h1 a:hover {
+      background: #d4d4d4;
+      color: #1a1a1a;
+    }
+
+    #nav {
+      border-bottom-color: #444;
     }
 
     #sub-header, .date {
-      color: #8b949e;
+      color: #888;
     }
 
     pre, code {
-      background-color: #161b22;
+      background: #252525;
     }
 
     blockquote {
-      border-left-color: #444c56;
-      color: #8b949e;
+      border-left-color: #555;
+      color: #999;
     }
 
-    hr {
-      background: #30363d;
+    hr, #links {
+      border-color: #444;
+    }
+
+    ul li::before {
+      color: #666;
     }
   }
 </style>
